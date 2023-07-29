@@ -15,7 +15,6 @@ export const addProductSlice = createSlice({
     initialState,
     reducers: {
       addProductInBuilder: (state, action) => {
-        /* state.value += action.payload */
         const categoryName = action.payload.category.replace(/ /g, '_');
         state[categoryName].image =  action.payload.image;
         state[categoryName].name =  action.payload.productname;

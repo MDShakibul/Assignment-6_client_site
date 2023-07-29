@@ -2,8 +2,11 @@ import RootLayout from "@/components/Layouts/RootLayout";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const PcBuilder = () => {
+  const product = useSelector((state) => state.addProduct)
+  console.log(product);
   return (
     <div className="container mx-auto">
       <Head>

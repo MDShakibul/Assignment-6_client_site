@@ -3,8 +3,11 @@ import Link from "next/link";
 import Rating from "./Rating";
 import { addProductInBuilder } from "@/redux/features/addProductSlice";
 import { useDispatch } from "react-redux";
+import { useRouter } from 'next/router';
+
 const Products = ({product, isDetailsButton}) => {
   const dispatch = useDispatch()
+  const router = useRouter();
   const productInfo = {
     category: product?.category,
     image: product?.image,
@@ -14,6 +17,7 @@ const Products = ({product, isDetailsButton}) => {
   /* dispatch(addProductInBuilder(productInfo)) */
   const handleAddBuilder = () => {
     dispatch(addProductInBuilder(productInfo));
+    router.push('/pc_builder');
   }
   return (
     <div className="card card-normal bg-base-100 shadow-xl">

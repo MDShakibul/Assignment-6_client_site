@@ -27,7 +27,7 @@ CategoryProducts.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export const getStaticPaths = async () => {
+/* export const getStaticPaths = async () => {
   const categories = [
     "Processor",
     "Motherboard",
@@ -43,19 +43,18 @@ export const getStaticPaths = async () => {
   }));
 
   return { paths, fallback: false };
-};
+}; */
 
-export const getStaticProps = async ({ params }) => {
-  const { categoryName } = params;
+export const getServerSideProps = async ({ params }) => {
   const res = await fetch(
-    `https://product-management-lake.vercel.app/api/v1/products?category=${categoryName}`
+    `https://product-management-lake.vercel.app/api/v1/products?category=${params.categoryName}`
   );
   const data = await res.json();
 
   return {
     props: {
       product: data?.data,
-      category: categoryName,
+      category: params?.categoryName,
     },
   };
 };
