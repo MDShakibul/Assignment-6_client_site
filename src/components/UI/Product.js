@@ -1,7 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import Rating from "./Rating";
+import { addProductInBuilder } from "@/redux/features/addProductSlice";
+import { useDispatch } from "react-redux";
 const Products = ({product, isDetailsButton}) => {
+  const dispatch = useDispatch()
+  const productInfo = {
+    category: product?.category,
+    image: product?.image,
+    productname: product?.productName,
+  }
+
+  /* dispatch(addProductInBuilder(productInfo)) */
+  const handleAddBuilder = () => {
+    dispatch(addProductInBuilder(productInfo));
+  }
   return (
     <div className="card card-normal bg-base-100 shadow-xl">
       <figure>
@@ -54,7 +67,7 @@ const Products = ({product, isDetailsButton}) => {
             More Detail
           </Link>
           :
-          <button className="btn btn-primary">
+          <button className="btn btn-primary" onClick={() => handleAddBuilder()}>
           Add To Builder
           </button>
         }
