@@ -1,10 +1,17 @@
 import RootLayout from "@/components/Layouts/RootLayout";
-import Products from "@/components/UI/Product";
+import Product from "@/components/UI/Product";
 import Head from "next/head";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
 
-const HomePage = () => {
+const HomePage = ({allProducts}) => {
+  const [randomProducts, setRandomProducts] = useState([]);
+
+  useEffect(() => {
+    const shuffledProducts = allProducts.sort(() => 0.5 - Math.random());
+    const selectedProducts = shuffledProducts.slice(0, 6);
+    setRandomProducts(selectedProducts);
+  }, [allProducts]);
   return (
     <>
       <Head>
@@ -34,12 +41,9 @@ const HomePage = () => {
       Featured Products
     </h1>
     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-10 w-full sm:w-3/4 md:w-[80%] mx-auto">
-  <Products />
-  <Products />
-  <Products />
-  <Products />
-  <Products />
-  <Products />
+  {
+    randomProducts?.map((product, index) => <Product key={index} product={product} isDetailsButton = {true}/>)
+  }
 </div>
     </>
   );
@@ -50,3 +54,15 @@ export default HomePage;
 HomePage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
+
+
+export const getStaticProps = async() => {
+  const res = await fetch("https://product-management-lake.vercel.app/api/v1/products");
+  const data = await res.json();
+
+  return {
+    props: {
+      allProducts: data?.data
+    }
+  }
+}

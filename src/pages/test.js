@@ -1,10 +1,10 @@
-import ProductDetails from "@/components/UI/ProductDetails";
+import ProductDetails from "@/components/UI/ProductDetail";
 import React from "react";
 
 const test = () => {
   return (
     <div>
-      <ProductDetails/>
+      <ProductDetails />
     </div>
   );
 };

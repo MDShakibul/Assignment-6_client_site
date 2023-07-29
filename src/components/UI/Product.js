@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import Rating from "./Rating";
-const Products = () => {
+const Products = ({product, isDetailsButton}) => {
   return (
     <div className="card card-normal bg-base-100 shadow-xl">
       <figure>
         <Image
-          src="https://www.startech.com.bd/image/cache/catalog/star-pc/ryzen/ryzen-5-pro-4650g-02-500x500.webp"
+          src={product?.image}
           alt="Example Image"
           layout="responsive"
           width={300}
@@ -15,25 +15,25 @@ const Products = () => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">
-          Intel Core i9-11900K
-          <div className="badge badge-secondary">Processor</div>
+        {product?.productName}
+          <div className="badge badge-secondary">{product?.category}</div>
         </h2>
-        <Rating value={5} />
-        <div class="flex justify-between">
-          <div class="flex-item text-orange-500 text-xl font-medium">
+        <Rating value={product?.averageRating} />
+        <div className="flex justify-between">
+          <div className="flex-item text-orange-500 text-xl font-medium">
             <span className="flex">
-              1500
+              {product?.price}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-currency-taka"
+                className="icon icon-tabler icon-tabler-currency-taka"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke="currentColor"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 {" "}
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />{" "}
@@ -43,14 +43,21 @@ const Products = () => {
               </svg>
             </span>
           </div>
-          <div class="flex-item">
-            <div className="badge badge-secondary">{true ? 'In Stock' : 'Out of Stock'}</div>
+          <div className="flex-item">
+            <div className="badge badge-secondary">{product?.status ? 'In Stock' : 'Out of Stock'}</div>
           </div>
         </div>
         <div className="card-actions justify-center">
-          <Link href={`#`} className="btn btn-primary">
+        {
+          isDetailsButton ? 
+          <Link href={`/product_details/${product?.id}`} className="btn btn-primary">
             More Detail
           </Link>
+          :
+          <button className="btn btn-primary">
+          Add To Builder
+          </button>
+        }
         </div>
       </div>
     </div>

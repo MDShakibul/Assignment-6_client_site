@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const RootLayout = ({ children }) => {
   return (
     <>
@@ -28,35 +30,53 @@ const RootLayout = ({ children }) => {
                 <li>
                   <a>Categoru</a>
                   <ul className="p-2">
-                    <li>
-                      <a>CPU / Processor</a>
-                    </li>
-                    <li>
-                      <a>Motherboard</a>
-                    </li>
-                    <li>
-                      <a>RAM</a>
-                    </li>
-                    <li>
-                      <a>Power Supply Unit</a>
-                    </li>
-                    <li>
-                      <a>Storage Device</a>
-                    </li>
-                    <li>
-                      <a>Monitor</a>
-                    </li>
-                    <li>
-                      <a>Others</a>
-                    </li>
+                    <Link href="/category/Processor">
+                      <li>
+                        <p>CPU / Processor</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Motherboard">
+                      <li>
+                        <p>Motherboard</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/RAM">
+                      <li>
+                        <p>RAM</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Power Supply Unit">
+                      <li>
+                        <p>Power Supply Unit</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Storage Device">
+                      <li>
+                        <p>Storage Device</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Monitor">
+                      <li>
+                        <p>Monitor</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Others">
+                      <li>
+                        <p>Others</p>
+                      </li>
+                    </Link>
                   </ul>
                 </li>
+                <Link href="/pc_builder">
                 <li>
-                  <a>PC Builder</a>
+                  <p>PC Builder</p>
                 </li>
+              </Link>
+              <Link href="">
                 <li>
-                  <a>Login</a>
+                  <p>Login</p>
                 </li>
+              </Link>
               </ul>
             </div>
             <a className="btn btn-ghost normal-case text-xl">PC Shop</a>
@@ -66,37 +86,55 @@ const RootLayout = ({ children }) => {
               <li tabIndex={0}>
                 <details>
                   <summary>Category</summary>
-                  <ul className="p-2 w-44">
-                    <li>
-                      <a>CPU / Processor</a>
-                    </li>
-                    <li>
-                      <a>Motherboard</a>
-                    </li>
-                    <li>
-                      <a>RAM</a>
-                    </li>
-                    <li>
-                      <a>Power Supply Unit</a>
-                    </li>
-                    <li>
-                      <a>Storage Device</a>
-                    </li>
-                    <li>
-                      <a>Monitor</a>
-                    </li>
-                    <li>
-                      <a>Others</a>
-                    </li>
+                  <ul className="p-2 w-44 z-[1]">
+                    <Link href="/category/Processor">
+                      <li>
+                        <p>CPU / Processor</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Motherboard">
+                      <li>
+                        <p>Motherboard</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/RAM">
+                      <li>
+                        <p>RAM</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Power Supply Unit">
+                      <li>
+                        <p>Power Supply Unit</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Storage Device">
+                      <li>
+                        <p>Storage Device</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Monitor">
+                      <li>
+                        <p>Monitor</p>
+                      </li>
+                    </Link>
+                    <Link href="/category/Others">
+                      <li>
+                        <p>Others</p>
+                      </li>
+                    </Link>
                   </ul>
                 </details>
               </li>
-              <li>
-                <a>PC Builder</a>
-              </li>
-              <li>
-                <a>Login</a>
-              </li>
+              <Link href="/pc_builder">
+                <li>
+                  <p>PC Builder</p>
+                </li>
+              </Link>
+              <Link href="">
+                <li>
+                  <p>Login</p>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>
