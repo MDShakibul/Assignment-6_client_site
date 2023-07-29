@@ -1,4 +1,5 @@
 import RootLayout from "@/components/Layouts/RootLayout";
+import Products from "@/components/UI/Product";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
@@ -32,13 +33,14 @@ const HomePage = () => {
       <h1 className=" text-5xl text-center font-semibold mt-12" >
       Featured Products
     </h1>
-      <div className="col-span-9 grid grid-cols-3 gap-5 p-10 w-[80%] mx-auto">
-        <div>adas</div>
-        <div>adas</div>
-        <div>adas</div>
-        <div>adas</div>
-        <div>adas</div>
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-10 w-full sm:w-3/4 md:w-[80%] mx-auto">
+  <Products />
+  <Products />
+  <Products />
+  <Products />
+  <Products />
+  <Products />
+</div>
     </>
   );
 };

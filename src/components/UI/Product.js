@@ -1,18 +1,58 @@
 import Image from "next/image";
 import Link from "next/link";
-const Products = ({ product }) => {
+import Rating from "./Rating";
+const Products = () => {
   return (
-    <div className="rounded-2xl h-[480px] flex flex-col items-start justify-between p-5 overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:scale-[102%] transition-all">
-      <Link href={`/product/${product.id}`} className="w-full">
-        <Image src={product?.image} alt="product" width={300} />
-        <h1 className="text-xl font-semibold">{product?.name}</h1>
-      </Link>
-      <p>Rating: {product?.rating}</p>
-      <p className="text-sm">
-        Availability: {product?.status ? "In stock" : "Out of stock"}
-      </p>
-      <p className="text-sm">Price: {product?.price}</p>
-      <button className="btn btn-neutral">Add to cart</button>
+    <div className="card card-normal bg-base-100 shadow-xl">
+      <figure>
+        <Image
+          src="https://www.startech.com.bd/image/cache/catalog/star-pc/ryzen/ryzen-5-pro-4650g-02-500x500.webp"
+          alt="Example Image"
+          layout="responsive"
+          width={300}
+          height={300}
+        />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">
+          Intel Core i9-11900K
+          <div className="badge badge-secondary">Processor</div>
+        </h2>
+        <Rating value={5} />
+        <div class="flex justify-between">
+          <div class="flex-item text-orange-500 text-xl font-medium">
+            <span className="flex">
+              1500
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-currency-taka"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                {" "}
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />{" "}
+                <circle cx="16.5" cy="15.5" r="1" />{" "}
+                <path d="M7 7a2 2 0 1 1 4 0v9a3 3 0 0 0 6 0v-.5" />{" "}
+                <path d="M8 11h6" />{" "}
+              </svg>
+            </span>
+          </div>
+          <div class="flex-item">
+            <div className="badge badge-secondary">{true ? 'In Stock' : 'Out of Stock'}</div>
+          </div>
+        </div>
+        <div className="card-actions justify-center">
+          <Link href={`#`} className="btn btn-primary">
+            More Detail
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
