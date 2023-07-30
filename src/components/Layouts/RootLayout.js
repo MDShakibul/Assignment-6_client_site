@@ -72,14 +72,14 @@ const RootLayout = ({ children }) => {
                   <p>PC Builder</p>
                 </li>
               </Link>
-              <Link href="">
+              <Link href="/login">
                 <li>
                   <p>Login</p>
                 </li>
               </Link>
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">PC Shop</a>
+            <Link href={"/"} className="btn btn-ghost normal-case text-xl">PC Shop</Link>
           </div>
           <div className="navbar-end hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
@@ -130,7 +130,7 @@ const RootLayout = ({ children }) => {
                   <p>PC Builder</p>
                 </li>
               </Link>
-              <Link href="">
+              <Link href="/login">
                 <li>
                   <p>Login</p>
                 </li>
