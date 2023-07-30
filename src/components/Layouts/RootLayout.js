@@ -1,6 +1,8 @@
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 const RootLayout = ({ children }) => {
+  const { data: session } = useSession();
   return (
     <>
       <div className="navbar bg-emerald-400">
@@ -68,18 +70,26 @@ const RootLayout = ({ children }) => {
                   </ul>
                 </li>
                 <Link href="/pc_builder">
-                <li>
-                  <p>PC Builder</p>
-                </li>
-              </Link>
-              <Link href="/login">
-                <li>
-                  <p>Login</p>
-                </li>
-              </Link>
+                  <li>
+                    <p>PC Builder</p>
+                  </li>
+                </Link>
+                {session?.user ? (
+                  <button onClick={() => signOut()}>
+                    <li>logout</li>
+                  </button>
+                ) : (
+                  <Link href="/login">
+                    <li>
+                      <p>Login</p>
+                    </li>
+                  </Link>
+                )}
               </ul>
             </div>
-            <Link href={"/"} className="btn btn-ghost normal-case text-xl">PC Shop</Link>
+            <Link href={"/"} className="btn btn-ghost normal-case text-xl">
+              PC Shop
+            </Link>
           </div>
           <div className="navbar-end hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
@@ -130,11 +140,17 @@ const RootLayout = ({ children }) => {
                   <p>PC Builder</p>
                 </li>
               </Link>
-              <Link href="/login">
-                <li>
-                  <p>Login</p>
-                </li>
-              </Link>
+              {session?.user ? (
+                <button onClick={() => signOut()}>
+                  <li>Logout</li>
+                </button>
+              ) : (
+                <Link href="/login">
+                  <li>
+                    <p>Login</p>
+                  </li>
+                </Link>
+              )}
             </ul>
           </div>
         </div>
