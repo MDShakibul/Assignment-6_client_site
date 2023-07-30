@@ -15,7 +15,7 @@ export const authOptions = {
     }),
   ],
   pages: {
-    signIn: "/login"
+    signIn: "https://pc-shop-tau.vercel.app/login"
   }
   
 };

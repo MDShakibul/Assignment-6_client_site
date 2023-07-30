@@ -2,6 +2,7 @@ import RootLayout from "@/components/Layouts/RootLayout";
 import Product from "@/components/UI/Product";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const HomePage = ({allProducts}) => {
@@ -33,7 +34,7 @@ const HomePage = ({allProducts}) => {
             <p className="py-6">
             Get ready to experience the ultimate in performance and power with our latest product lineup. 🔥 Do not miss this chance to upgrade your setup with the best-in-class components!
             </p>
-            <button className="btn btn-accent">PC Build</button>
+            <Link href="/pc_builder" className="btn btn-accent">PC Build</Link>
           </div>
         </div>
       </div>
