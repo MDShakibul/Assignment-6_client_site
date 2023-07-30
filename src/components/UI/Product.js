@@ -12,6 +12,7 @@ const Products = ({product, isDetailsButton}) => {
     category: product?.category,
     image: product?.image,
     productname: product?.productName,
+    price: product?.price,
   }
 
   /* dispatch(addProductInBuilder(productInfo)) */
@@ -33,8 +34,8 @@ const Products = ({product, isDetailsButton}) => {
       <div className="card-body">
         <h2 className="card-title">
         {product?.productName}
-          <div className="badge badge-secondary">{product?.category}</div>
         </h2>
+          <div className="badge badge-secondary">{product?.category}</div>
         <Rating value={product?.averageRating} />
         <div className="flex justify-between">
           <div className="flex-item text-orange-500 text-xl font-medium">

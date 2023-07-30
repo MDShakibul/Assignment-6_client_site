@@ -18,6 +18,7 @@ export const addProductSlice = createSlice({
         const categoryName = action.payload.category.replace(/ /g, '_');
         state[categoryName].image =  action.payload.image;
         state[categoryName].name =  action.payload.productname;
+        state[categoryName].price =  action.payload.price;
       },
     },
   })
